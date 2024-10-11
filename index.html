@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Med</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="./index.js"></script>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+
+        <div class="container">
+
+            <div class="header">
+
+                <img src="./assets/logo.svg" alt="logo">
+
+                <div class="header__nav">
+                    <button class="header__nav__button"><a href="#quiz">SIGN IN</a></button>
+                    <img src="./assets/search.svg" alt="search icon">
+                    <img src="./assets/cart.svg" alt="  cart" class="cart">
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <!-- Main Section -->
+    <main>
+
+        <!-- Promo Section -->
+        <div class="container promo_wrapper">
+            <p class="promo__text">New Online Pharmacy Program  Allows California Residents 
+                to Purchase Generic Viagra® and Generic Cialis® at $7 for 9 Gummys. (Limit of 18 Gummys Per Person, Per Month.)</p>
+        </div>
+
+        <!-- Products Section -->
+        <section>
+            <div class="container">
+                <div>
+                    <div class="products">
+                        <div class="product__container">
+                            <img src="./assets/cvs.png" alt="cvs">
+                            <div class="product">
+                                <img src="./assets/image_1.jpg" alt="tablets">
+                                <div class="product__price">
+                                    $4.67/Tablet
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product__container">
+                            <div class="product__text">NEW PROGRAM</div>
+                            <div class="product">
+                                <img src="./assets/image_2.jpg" alt="gummy">
+                                <div class="product__price">
+                                    $0.77/Gummy
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product__description">
+                        <p>In this program, you'll never pay extra for higher doses of ED medication. It's simple: no hidden fees for increased dosages, and no prescription is required. </p>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section class="quiz" id="quiz">
+
+            <div class="container">
+                <div class="quiz__container">
+                    <div class="question-image">
+                        <img id="questionImage" src="./assets/pic_1.jpg" alt="doctor">
+                    </div>
+                    <div class="quiz__content">
+                        <div class="quiz__description">
+                            <p class="quiz__description__text">Just answer a few quick health-related questions in under two minutes, and you're good to go.</p>
+                        </div>
+                        <div class="pagination" id="questionNumbers"></div>
+                        <div class="quiz__question">
+                            <p id="questionText"></p>
+                        </div>
+                        <div class="quiz__answers">
+                            <button class="btn yes" onclick="answer('yes')">YES</button>
+                            <button class="btn no" onclick="answer('no')">NO</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="overlay" id="overlay">
+                    
+                    <div class="overlay__container">
+                        <div class="overlay__header">
+                            <h2>Congratulations!</h2>
+                            <p>You've won new program bears</p>
+                        </div>
+
+                        <div class="overlay__product">
+                            <img src="./assets/image_2.jpg" alt="tablets">
+                            <div class="overlay__product__price">
+                                $0.77/Gummy
+                            </div>
+                        </div>
+                        
+
+                        <div class="overlay__form">
+                            <div class="overlay__form__text">
+                                <ol >
+                                    <li>Click on "OK" and then continue with the delivery page</li>
+                                    <li>Fill in the form to receive one free botle you have
+                                        <span id="timer" class="timer">
+                                            <span>0</span><span>0</span><span>0</span><span>0</span>
+                                        </span>
+                                        minutes to do it</li>
+                                </ol>
+                            </div>
+                            <form action="./process.php" method="POST" class="form" onsubmit="return validateForm()">
+                                <input type="email" name="email" id="email" placeholder="Enter email" required>
+                                <button type="submit">Send</button>
+                                <button type="button" onclick="closeOverlay()">Close</button>
+                            </form>
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- News Section -->
+        <section>
+           <div class="container">
+                <div class="news">
+
+
+                    <div class="news__header">
+                        <p class="news__text">Revolutionary New Program: </p>
+                        <span class="news__text">Natural Alternatives to Viagra at Unbeatable Prices</span>
+                    </div>
+                  
+                    <button class="news__banner">
+                        <a href="">A Game-Changer in Men's Health</a> 
+                    </button>
+                    <p class="news__description">
+                        (Washington, D.C.) Exciting news for men in [Your Target Region]: A new program has been launched that offers natural alternatives to Viagra at a staggering 96% discount compared to retail prices at major pharmacies like CVS and Walgreens. This groundbreaking initiative is designed to provide safe, effective, and affordable options for men looking to enhance their sexual health without breaking the bank.
+                    </p>
+                </div>
+           </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section>
+            <div class="container">
+                <div class="testimonials">
+
+                    <!-- Testimonial 1 -->
+                    <div class="testimonials__wrapper">
+                        <div class="testimonials__header testimonials__container ">
+                            <div class="testimonials__header__data">
+                                <img src="./assets/avatar_1.png" alt="avatar_1" width="42px" height="42px">
+                                <div class="testimonials__header__data__text">
+                                    <div class="testimonials__header__wrapper">
+                                        <div class="testimonials__name__wrapper">
+                                            <p class="testimonials__name">Michael J.</p> 
+                                            <img src="./assets/recommendIcon.png" alt="recommendIcon">
+                                        </div>
+                                        <div class="testimonials__status">
+                                            <p>30m •</p>
+                                            <img src="./assets/earth.svg" alt="earth">
+                                        </div>
+                                    </div>
+                                    <div class="testimonials__recommend__text">
+                                        <p>recommends</p>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div>
+                                <a href="#quiz"><img src="./assets/optionsIcon.svg" alt="options"></a>
+                                
+                            </div>
+                        </div>
+                        <div class="testimonials__container">
+                            <p class="testimonials__description">I tried GroMax, and I have to say, it's the best alternative to Viagra I've ever used. The effects kick in quickly, and I feel more confident than ever before. I highly recommend it to anyone looking for an effective solution!</p>
+                        </div>
+                        <div class="testimonials__resulst">
+                            <div class="testimonials__results__container ">
+                                <div class="testimonials__results__container__item">
+                                    <div class="testimonials__icons">
+                                        <img src="./assets/like.svg" alt="like">
+                                        <img src="./assets/likes.svg" alt="heart">
+                                    </div>
+                                    <p>You & 147 other</p>
+                                </div>
+                                <div>
+                                    0 Comments
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" testimonials__container">
+                            <div class="testimonials__actions">
+                                <div class="testimonials__actions__item">
+                                    <img src="./assets/like_reaction.svg" alt="like">
+                                    <a href="#quiz"><p class="like">Like</p></a>
+                                </div>
+                                <div class="testimonials__actions__item">
+                                    
+                                    <img src="./assets/comment.svg" alt="comment">
+                                    <a href="#quiz"><p>Comment</p></a>
+                                </div>
+                                <div class="testimonials__actions__item">
+                                    
+                                    <img src="./assets/share.svg" alt="share">
+                                    <a href="#quiz"><p>Share</p></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="testimonials__wrapper">
+
+                        <!-- Testimonial Header -->
+                        <div class="testimonials__header testimonials__container ">
+                            <div class="testimonials__header__data">
+                                <img src="./assets/avatar_2.png" alt="avatar_1" width="42px" height="42px">
+                                <div class="testimonials__header__data__text">
+                                    <div class="testimonials__header__wrapper">
+                                        <div class="testimonials__name__wrapper">
+                                            <p class="testimonials__name">James L.</p> 
+                                            <img src="./assets/recommendIcon.png" alt="recommendIcon">
+                                        </div>
+                                        <div class="testimonials__status">
+                                            <p>1d •</p>
+                                            <img src="./assets/earth.svg" alt="earth">
+                                        </div>
+                                    </div>
+                                    <div class="testimonials__recommend__text">
+                                        <p>recommends</p>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div>
+                                <a href="#quiz"><img src="./assets/optionsIcon.svg" alt="options"></a>
+                                
+                            </div>
+                        </div>
+
+
+                        <div class="testimonials__container">
+                            <p class="testimonials__description">Does anyone know of a natural product that can help improve sexual health? I've been searching for something effective and safe, but it's hard to find something I can trust. Any recommendations?</p>
+                        </div>
+
+
+                        <div class="testimonials__resulst">
+                            <div class="testimonials__results__container ">
+                                <div class="testimonials__results__container__item">
+                                    <div class="testimonials__icons">
+                                        <img src="./assets/like.svg" alt="like">
+                                        <img src="./assets/likes.svg" alt="heart">
+                                    </div>
+                                    <p>You & 243 other</p>
+                                </div>
+                                <div>
+                                    0 Comments
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class=" testimonials__container">
+                            <div class="testimonials__actions">
+                                <div class="testimonials__actions__item">
+                                    <img src="./assets/like_reaction.svg" alt="like">
+                                    <a href="#quiz"><p class="like">Like</p></a>
+                                </div>
+                                <div class="testimonials__actions__item">
+                                    <img src="./assets/comment.svg" alt="comment">
+                                    <a href="#quiz"><p>Comment</p></a>
+                                </div>
+                                <div class="testimonials__actions__item">
+                                    <img src="./assets/share.svg" alt="share">
+                                    <a href="#quiz"><p>Share</p></a> 
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="testimonials__container">
+
+                            <div class="testimonials__comments">
+
+                                <div>
+                                    <img src="./assets/avatar_3.png" width="32px" height="32px" alt=" avatar_2">
+                                </div>
+
+                                <div class="testimonials__comments__content">
+
+                                    <div class="testimonials__comments__content__item">
+                                        <p class="testimonials__comment__name">David W.</p>
+                                        <p class="testimonials__comment__text">I've always looked for a natural way to improve my health, and GroMax is the perfect choice. These gummy bears are natural, free of harmful additives, and work better than any other product I've tried. I recommend it to anyone who values natural ingredients and effectiveness!</p>
+                                    </div>
+
+                                    <div class="testimonials__comments__content__actions">
+                                        <button>Like</button>
+                                        <button>Reply</button>
+                                        <p>5m</p>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="testimonials__wrapper third">
+                        <div class="testimonials__header testimonials__container ">
+                            <div class="testimonials__header__data">
+                                <img src="./assets/avatar_4.png" alt="avatar_1" width="42px" height="42px">
+                                <div class="testimonials__header__data__text">
+                                    <div class="testimonials__header__wrapper">
+                                        <div class="testimonials__name__wrapper">
+                                            <p class="testimonials__name">John S.</p> 
+                                            <img src="./assets/recommendIcon.png" alt="recommendIcon">
+                                        </div>
+                                        <div class="testimonials__status">
+                                            <p>1d •</p>
+                                            <img src="./assets/earth.svg" alt="earth">
+                                        </div>
+                                    </div>
+                                    <div class="testimonials__recommend__text">
+                                        <p>recommends</p>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div>
+                                <a href="#quiz"><img src="./assets/optionsIcon.svg" alt="options"></a>
+                                
+                            </div>
+                        </div>
+                        <div class="testimonials__container">
+                            <p class="testimonials__description">GroMax has truly changed my life for the better. I've noticed significant improvement without any side effects. It's a fantastic product that works exactly as promised!</p>
+                        </div>
+                        <div class="testimonials__resulst">
+                            <div class="testimonials__results__container ">
+                                <div class="testimonials__results__container__item">
+                                    <div class="testimonials__icons">
+                                        <img src="./assets/like.svg" alt="like">
+                                        <img src="./assets/likes.svg" alt="heart">
+                                    </div>
+                                    <p>You & 47 other</p>
+                                </div>
+                                <div>
+                                    0 Comments
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" testimonials__container">
+                            <div class="testimonials__actions">
+                                <div class="testimonials__actions__item">
+                                    <img src="./assets/like_reaction.svg" alt="like">
+                                    <a href="#quiz"><p class="like">Like</p></a>
+                                    
+                                </div>
+                                <div class="testimonials__actions__item">
+                                    <img src="./assets/comment.svg" alt="comment">
+                                    <a href="#quiz"><p>Comment</p></a>
+                                    
+                                </div>
+                                <div class="testimonials__actions__item">
+                                    <img src="./assets/share.svg" alt="share">
+                                    <a href="#quiz"><p>Share</p></a>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+
+        <div class="container">
+
+            <div class="footer__container">
+
+                <!-- Logo -->
+                <div class="footer__logo">
+                    <img src="./assets/footer_logo.svg" alt="logo">
+                </div>
+
+                <!-- Navigation -->
+                <div class="footer__nav__container">
+                    
+                    <div class="footer__nav ">
+                        <ul class="footer__nav__list">
+                            <li class="footer__nav__item"><a class="footer__nav__link" href="#quiz"> About Men's Health
+                            </a></li>
+                            <li class="footer__nav__item"><a class="footer__nav__link" href="#quiz">  Advertise</a></li>
+                            <li class="footer__nav__item"><a class="footer__nav__link" href="#quiz">Other Hearst Subscriptions</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer__nav ">
+                        <ul class="footer__nav__list">
+                            <li class="footer__nav__item"><a class="footer__nav__link" href="#quiz"> Newsletter </a></li>
+                            <li class="footer__nav__item"><a class="footer__nav__link" href="#quiz"> Subscribe</a></li>
+                            <li class="footer__nav__item"><a class="footer__nav__link" href="#quiz">Media Kit</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer__nav ">
+                        <ul class="footer__nav__list">
+                            <li class="footer__nav__item"><a class="footer__nav__link" href="#quiz"> Customer Care </a></li>
+                            <li class="footer__nav__item"><a class="footer__nav__link" href="#quiz">  Give a Gift</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer__nav ">
+                        <ul class="footer__nav__list">
+                            <li class="footer__nav__item"><a class="footer__nav__link" href="#quiz"> E-prints, Reprints </a></li>
+                            <li class="footer__nav__item"><a class="footer__nav__link" href="#quiz">  Manage Email Preferences</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <!-- Copyright -->
+                <div class="footer__copyright__container">
+
+                    <div class="footer__copyright__text">
+                        <p>A Part of Hearst Digital Media</p>
+
+                        <p>We may earn commission from links on this page, but we only recommend products we back.</p>
+    
+                        <p>©2024 Hearst Magazines, Inc. All Rights Reserved.</p>
+                    </div>
+                    
+
+                    <div class="footer__copyright__links">
+                        <p>Privacy Notice</p>
+                        <p>CA Notice at Collection</p>
+                        <p>Your CA Privacy Rights/Shine the Light</p>
+                        <p> DAA Industry Opt Out</p>
+                        <p>Terms of Use</p>
+                        <p>Site Map</p>
+                    </div>
+
+                    <div class="footer__copyright__privacy">
+                        <a href="#quiz">Your Privacy Choices: Opt Out of Sale/Targeted Ads</a>
+                    </div>
+
+                </div>
+
+            </div>
+            
+        </div>
+
+    </footer>
+
+</body>
+</html>
