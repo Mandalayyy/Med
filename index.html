@@ -121,7 +121,7 @@
                                         minutes to do it</li>
                                 </ol>
                             </div>
-                            <form action="./process.php" method="POST" class="form" onsubmit="return validateForm()">
+                            <form id="quizForm" class="form" onsubmit="return submitForm()">
                                 <input type="email" name="email" id="email" placeholder="Enter email" required>
                                 <button type="submit">Send</button>
                                 <button type="button" onclick="closeOverlay()">Close</button>

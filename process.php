@@ -1,22 +1,31 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] !== "POST") {
-    echo "Invalid request method.";
-    exit;
-}
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Очищення та перевірка email
+    $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+    $answers = json_decode($_POST['answers'], true);
 
-$error = '';
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Validate email
-    $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
-
-    if ($email) {
-        // If the email is valid, redirect to Men's Health
-        header("Location: https://www.menshealth.com/");
+    // Валідація електронної пошти
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo 'Invalid email format';
         exit;
-    } else {
-        // Set the error message if the email is invalid
-        $error = "Please enter a valid email address.";
     }
+
+    // Валідація відповідей: перевірка, що це масив і він заповнений
+    if (!is_array($answers) || count($answers) !== 7) {
+        echo 'Answer all questions';
+        exit;
+    }
+
+    // Перевірка на пусті значення у відповідях
+    foreach ($answers as $answer) {
+        if (empty($answer)) {
+            echo 'Answer all questions';
+            exit;
+        }
+    }
+
+    // Якщо валідація успішна
+    echo 'success';
+    exit;
 }
 ?>

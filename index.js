@@ -1,6 +1,7 @@
 let currentQuestion = 1;
 const totalQuestions = 7;
 let countdownInterval;
+const answers = [];
 
 // Дані для кожного питання
 const questions = [
@@ -46,13 +47,15 @@ function initQuestionNumbers() {
 
 // Функція для обробки відповіді
 function answer(response) {
+  // Save the answer in the array
+  answers.push({ question: currentQuestion, answer: response });
 
-  // Переходимо до наступного питання
+  // Proceed to the next question
   if (currentQuestion < totalQuestions) {
-    currentQuestion++;
-    showQuestion(currentQuestion);
+      currentQuestion++;
+      showQuestion(currentQuestion);
   } else {
-    showOverlay();
+      showOverlay();
   }
 }
 
@@ -85,16 +88,46 @@ function startTimer(duration, display) {
   }, 1000);
 }
 
-function validateForm() {
+function submitForm() {
+  // Отримуємо значення email
   const email = document.getElementById('email').value;
+
+  // Перевірка, чи поле електронної пошти не порожнє та правильного формату
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  
   if (!emailPattern.test(email)) {
-      alert('Please enter a valid email address.');
-      return false; // Prevent form submission
+      alert("Email is not correct");
+      return false;
   }
-  
-  return true; // Proceed with form submission
+
+  // Перевірка, чи всі відповіді заповнені
+  if (answers.length !== 7) {
+      alert("Answer all questions");
+      return false;
+  }
+
+  // Готуємо дані для відправки
+  const formData = new FormData();
+  formData.append('email', email);
+  formData.append('answers', JSON.stringify(answers));
+
+  // Звільнення місця для відповіді
+  // Відправка форми за допомогою fetch
+  fetch('./process.php', {
+      method: 'POST',
+      body: formData
+  })
+  .then(response => response.text())
+  .then(data => {
+      console.log(data);
+      if (data === 'success') {
+          window.location.href = 'https://www.menshealth.com/';
+      } else {
+          alert(data); // Відображення повідомлення про помилку
+      }
+  })
+  .catch(error => console.error('Error:', error));
+
+  return false; // Запобігає стандартному відправленню форми
 }
 
 function closeOverlay() {
